@@ -83,7 +83,7 @@ func (p *GRPCPool) factory(addr string) (*Client, error) {
 		grpc.WithBackoffMaxDelay(backOffMaxDelay),
 	}
 	opts = append(opts, grpc.WithDefaultCallOptions(
-		grpc.MaxCallRecvMsgSize(200*1024*1024)))
+		grpc.MaxCallRecvMsgSize(500*1024*1024)))
 
 	if !app.Setting.EnableTLS {
 		opts = append(opts, grpc.WithInsecure())

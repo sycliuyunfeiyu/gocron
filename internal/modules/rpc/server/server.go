@@ -59,7 +59,7 @@ func Start(addr string, enableTLS bool, certificate auth.Certificate) {
 		grpc.KeepaliveParams(keepAliveParams),
 		grpc.KeepaliveEnforcementPolicy(keepAlivePolicy),
 	}
-	opts = append(opts, grpc.MaxRecvMsgSize(200*1024*1024))
+	opts = append(opts, grpc.MaxRecvMsgSize(500*1024*1024))
 	if enableTLS {
 		tlsConfig, err := certificate.GetTLSConfigForServer()
 		if err != nil {
